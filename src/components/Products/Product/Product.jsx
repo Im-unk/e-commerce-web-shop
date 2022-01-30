@@ -12,6 +12,8 @@ import { AddShoppingCart } from "@material-ui/icons";
 
 import useStyles from "./styles";
 
+// here we define use the commerce.js properties to show every product in out page :)
+
 const Product = ({ product }) => {
   const classes = useStyles();
   return (
