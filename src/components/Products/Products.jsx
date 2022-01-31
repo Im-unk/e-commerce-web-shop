@@ -11,7 +11,7 @@ import useStyles from "./style";
 //well, we just defined our commerce.js in App.js file and we also set a setState which our products are inside it and we are going to get our products feom that so every thing is defined in the App.js file and we are going to get our products as props inside our products :)
 //then inside Products we map through the products that we got that as props so and define the name of the items as product
 // and inside the Product componnet we also defined another prop and we get it and use it in the Product and it comes from the map that we had inside the products :)
-const Products = ({ products }) => {
+const Products = ({ products, onAddToCart }) => {
   const classes = useStyles();
   return (
     <main className={classes.content}>
@@ -19,7 +19,7 @@ const Products = ({ products }) => {
       <Grid container justify-content="center" spacing={4}>
         {products.map((product) => (
           <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
-            <Product product={product} />
+            <Product product={product} onAddToCart={onAddToCart} />
           </Grid>
         ))}
       </Grid>
