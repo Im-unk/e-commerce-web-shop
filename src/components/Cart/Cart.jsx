@@ -46,7 +46,7 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
           >
             Empty cart
           </Button>
-          <Link to="./checkout">
+          <Link to="/checkout">
             <Button
               className={classes.checkoutButton}
               to="/checkout"

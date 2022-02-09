@@ -32,31 +32,33 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
         </Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>
-        <div className={classes.buttons}>
+        <div className={classes.buttonSection}>
+          <div className={classes.buttons}>
+            <Button
+              type="button"
+              size="small"
+              onClick={() => handleUpdateCartQty(item.id, item.quantity - 1)}
+            >
+              -
+            </Button>
+            <Typography>&nbsp;{item.quantity}&nbsp;</Typography>
+            <Button
+              type="button"
+              size="small"
+              onClick={() => handleUpdateCartQty(item.id, item.quantity + 1)}
+            >
+              +
+            </Button>
+          </div>
           <Button
+            variant="contained"
             type="button"
-            size="small"
-            onClick={() => handleUpdateCartQty(item.id, item.quantity - 1)}
+            color="secondary"
+            onClick={() => handleRemoveFromCart(item.id)}
           >
-            -
-          </Button>
-          <Typography>&nbsp;{item.quantity}&nbsp;</Typography>
-          <Button
-            type="button"
-            size="small"
-            onClick={() => handleUpdateCartQty(item.id, item.quantity + 1)}
-          >
-            +
+            Remove
           </Button>
         </div>
-        <Button
-          variant="contained"
-          type="button"
-          color="secondary"
-          onClick={() => handleRemoveFromCart(item.id)}
-        >
-          Remove
-        </Button>
       </CardActions>
     </Card>
   );
