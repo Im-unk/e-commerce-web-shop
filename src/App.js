@@ -3,7 +3,7 @@ import { CssBaseline } from "@material-ui/core";
 
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-import { Navbar, Products, Cart } from "./components";
+import { Navbar, Products, Cart, Checkout } from "./components";
 import { commerce } from "./lib/commerce";
 
 const App = () => {
@@ -111,6 +111,8 @@ const App = () => {
               />
             }
           />
+
+          <Route exact path="/checkout" element={<Checkout />} />
         </Routes>
       </div>
     </Router>
