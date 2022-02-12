@@ -16,15 +16,39 @@ import AddressForm from "../Checkout/CheckoutForms/AddressForm";
 
 import PaymentForm from "../Checkout/CheckoutForms/PaymentForm";
 
+import { commerce } from "../../lib/commerce";
+
+import { useEffect } from "react";
+
 const steps = ["Shipping Address", "Paying Address"];
 
-const Checkout = () => {
+const Checkout = ({ cart }) => {
   const classes = useStyles();
   const [currentStep, setCurrentStep] = useState(0);
+  const [checkoutToken, setCheckoutToken] = useState(null);
+
+  useEffect(() => {
+    const generateToken = async () => {
+      try {
+        const token = await commerce.checkout.generateToken(cart.id, {
+          type: "cart",
+        });
+        console.log(token);
+        setCheckoutToken(token);
+      } catch (error) {}
+    };
+
+    generateToken();
+  }, [cart]);
 
   const Confirmation = () => <div>Confirmation</div>;
 
-  const Form = () => (currentStep === 0 ? <AddressForm /> : <PaymentForm />);
+  const Form = () =>
+    currentStep === 0 ? (
+      <AddressForm checkoutToken={checkoutToken} />
+    ) : (
+      <PaymentForm />
+    );
   return (
     <>
       <div className={classes.toolbar} />
@@ -40,7 +64,11 @@ const Checkout = () => {
               </Step>
             ))}
           </Stepper>
-          {currentStep === steps.length ? <Confirmation /> : <Form />}
+          {currentStep === steps.length ? (
+            <Confirmation />
+          ) : (
+            checkoutToken && <Form />
+          )}
         </Paper>
       </main>
     </>
