@@ -16,7 +16,7 @@ import TextInput from "./TextField";
 
 import { commerce } from "../../../lib/commerce";
 
-const AddressForm = ({ checkoutToken }) => {
+const AddressForm = ({ checkoutToken, next }) => {
   const methods = useForm();
 
   const [shippingCountries, setShippingCountries] = useState([]);
@@ -107,7 +107,16 @@ const AddressForm = ({ checkoutToken }) => {
         Shipping Address
       </Typography>
       <FormProvider {...methods}>
-        <form onSubmit="">
+        <form
+          onSubmit={methods.handleSubmit((data) =>
+            next({
+              ...data,
+              shippingCountry,
+              shippingSubdivision,
+              shippingOption,
+            })
+          )}
+        >
           <Grid container spacing={3}>
             <TextInput name="firstName" label="First Name" required />
             <TextInput name="lastName" label="Last Name" required />
