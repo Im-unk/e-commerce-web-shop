@@ -26,7 +26,7 @@ const Checkout = ({ cart }) => {
   const classes = useStyles();
   const [currentStep, setCurrentStep] = useState(0);
   const [checkoutToken, setCheckoutToken] = useState(null);
-  const [shipingData, setShippingData] = useState({});
+  const [shippingData, setShippingData] = useState({});
 
   useEffect(() => {
     const generateToken = async () => {

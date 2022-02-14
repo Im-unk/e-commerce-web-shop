@@ -91,11 +91,13 @@ const App = () => {
             exact
             path="/"
             element={
-              <Products
-                products={products}
-                onAddToCart={handleAddToCart}
-                handleUpdateCartQty
-              />
+              <>
+                <Products
+                  products={products}
+                  onAddToCart={handleAddToCart}
+                  handleUpdateCartQty
+                />
+              </>
             }
           />
 
