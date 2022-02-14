@@ -178,7 +178,7 @@ const AddressForm = ({ checkoutToken, next }) => {
               Back to cart
             </Button>
 
-            <Button type="submit" variant="outlined" color="primary">
+            <Button type="submit" color="primary">
               Next
             </Button>
           </div>
