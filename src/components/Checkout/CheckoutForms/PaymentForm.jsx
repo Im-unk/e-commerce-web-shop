@@ -7,13 +7,15 @@ import {
   CardNumberElement,
 } from "@stripe/react-stripe-js";
 
+import { Link } from "react-router-dom";
+
 import { loadStripe } from "@stripe/stripe-js";
 
 import Review from "../Review";
 
 const stripePromise = loadStripe("...");
 
-const PaymentForm = ({ checkoutToken, backStep }) => {
+const PaymentForm = ({ checkoutToken, backStep, next }) => {
   return (
     <>
       <Review checkoutToken={checkoutToken} />
@@ -41,6 +43,7 @@ const PaymentForm = ({ checkoutToken, backStep }) => {
                   variant="contained"
                   disabled={!stripe}
                   color="primary"
+                  onClick={next}
                 >
                   Pay {checkoutToken.live.subtotal.formatted_with_symbol}
                 </Button>

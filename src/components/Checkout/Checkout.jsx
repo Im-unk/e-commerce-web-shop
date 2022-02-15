@@ -10,6 +10,8 @@ import {
   Divider,
 } from "@material-ui/core";
 
+import { Link } from "react-router-dom";
+
 import useStyles from "./styles";
 
 import AddressForm from "../Checkout/CheckoutForms/AddressForm";
@@ -49,7 +51,25 @@ const Checkout = ({ cart }) => {
     nextStep();
   };
 
-  const Confirmation = () => <div>Confirmation</div>;
+  const Confirmation = () => {
+    return (
+      <div className={classes.confirmation}>
+        <Typography variant="h6" align="center" style={{ padding: "100px 0" }}>
+          ✨Thanks for your purchase!✨
+        </Typography>
+        <Button
+          component={Link}
+          to="/"
+          align="center"
+          variant="contained"
+          color="primary"
+          style={{ marginBottom: "30px" }}
+        >
+          Back to Home
+        </Button>
+      </div>
+    );
+  };
 
   const Form = () =>
     currentStep === 0 ? (
@@ -59,6 +79,7 @@ const Checkout = ({ cart }) => {
         shippingData={shippingData}
         checkoutToken={checkoutToken}
         backStep={backStep}
+        next={next}
       />
     );
   return (
