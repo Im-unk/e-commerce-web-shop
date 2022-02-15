@@ -35,6 +35,17 @@ const Navbar = ({ totalItems }) => {
             Store Name
           </Typography>
 
+          <div className={classes.menuSection}>
+            <ul className={classes.menu}>
+              <Link to="/" style={{ textDecoration: "none", color: "#000" }}>
+                <li className={classes.menuItem}>Home</li>
+              </Link>
+              <li className={classes.menuItem}>Products</li>
+              <li className={classes.menuItem}>About us</li>
+              <li className={classes.menuItem}>Contact us</li>
+            </ul>
+          </div>
+
           <div className={classes.grow} />
           <Link to="/cart">
             <div className={classes.button}>

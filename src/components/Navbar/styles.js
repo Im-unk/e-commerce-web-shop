@@ -43,6 +43,24 @@ export default makeStyles((theme) => ({
       width: "auto",
     },
   },
+  menuSection: {
+    display: "flex",
+    flex: "1",
+  },
+
+  menu: {
+    display: "flex",
+    justifyContent: "space-evenly",
+    listStyle: "none",
+    fontSize: "20px",
+    fontWeight: "500",
+  },
+
+  menuItem: {
+    margin: "0 8px",
+    cursor: "pointer",
+  },
+
   searchIcon: {
     padding: theme.spacing(0, 2),
     height: "100%",
