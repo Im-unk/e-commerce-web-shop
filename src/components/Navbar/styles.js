@@ -66,7 +66,7 @@ export default makeStyles((theme) => ({
     height: "100%",
     position: "absolute",
     pointerEvents: "none",
-    display: "flex",
+    display: "row",
     alignItems: "center",
     justifyContent: "center",
   },
